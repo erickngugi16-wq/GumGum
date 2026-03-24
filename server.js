@@ -6,9 +6,9 @@ const archiver = require('archiver');
 const path = require('path');
 const fs = require('fs');
 
-app.use(express.static('public'));
 const app = express();
 const upload = multer({ dest: 'uploads/' });
+app.use(express.static('public'));
 
 console.log("StartingPIXELMARK server...");
 // Middleware
