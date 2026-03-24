@@ -6,6 +6,7 @@ const archiver = require('archiver');
 const path = require('path');
 const fs = require('fs');
 
+app.use(express.static('public'));
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 
@@ -25,11 +26,6 @@ app.use(session({
 });
 
 // -------------------- Routes --------------------
-
-// Root route
-app.get('/', (req, res) => {
-    res.send('PIXELMARK backend is running');
-});
 
 // 1. Upload images only (no watermark yet)
 app.post('/upload', upload.array('images[]'), (req, res) => {
